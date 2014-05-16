@@ -19,16 +19,22 @@ my $tidy = HTML::Tidy::libXML->new;
 sub search {
     my ($class, $word) = @_;
 
-    my $uri = URI->new($BASE_URL);
-    $uri->path('/wiki/'. $word);
-
-    my $res = $agent->get($uri->as_string);
+    my $url = $class->url($word);
+    my $res = $agent->get($url);
     unless ($res->is_success) {
-        carp(sprintf('GET %s : %s', $uri->as_string, $res->status_line));
+        carp(sprintf('GET %s : %s', $url, $res->status_line));
         return;
     }
 
     $class->_parse($res->content);
+}
+
+sub url {
+    my ($class, $word) = @_;
+
+    my $uri = URI->new($BASE_URL);
+    $uri->path('/wiki/'. $word);
+    $uri->as_string;
 }
 
 sub _parse {
@@ -57,6 +63,7 @@ WWW::Uncyclopedia - Perl interface class for Uncyclopedia(L<http://ja.uncycloped
 
     use WWW::Uncyclopedia;
     my $text = WWW::Uncyclopedia->search('盥回し');
+    my $url =  WWW::Uncyclopedia->url('盥回し');
 
 =head1 DESCRIPTION
 

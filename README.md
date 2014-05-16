@@ -6,6 +6,7 @@ WWW::Uncyclopedia - Perl interface class for Uncyclopedia([http://ja.uncyclopedi
 
     use WWW::Uncyclopedia;
     my $text = WWW::Uncyclopedia->search('盥回し');
+    my $url =  WWW::Uncyclopedia->url('盥回し');
 
 # DESCRIPTION
 

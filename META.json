@@ -59,6 +59,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ytnobody/WWW-Uncyclopedia/issues"
+      },
+      "homepage" : "https://github.com/ytnobody/WWW-Uncyclopedia",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ytnobody/WWW-Uncyclopedia.git",
+         "web" : "https://github.com/ytnobody/WWW-Uncyclopedia"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:YTURTLE"
 }
